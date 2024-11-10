@@ -67,7 +67,7 @@ catch e
     @warn "Error initializing Revise" exception=(e, catch_backtrace())
 end
 
-if contains(get(ENV, "LD_LIBRARY_PATH", ""), "/cuda")
+if contains(get(ENV, "LD_LIBRARY_PATH", ""), r"/cuda|/nvidia")
     @info "LD_LIBRARY_PATH contains \"cuda\", will use system CUDA installation"
 
     local_prefs_toml = joinpath(dirname(Pkg.project().path), "LocalPreferences.toml")
